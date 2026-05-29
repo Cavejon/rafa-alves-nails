@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CONTACT_INFO } from '../../../data/data';
+import { BookingService } from '../../../services/booking.service'; 
 
 @Component({
   selector: 'app-navbar',
@@ -130,12 +131,13 @@ import { CONTACT_INFO } from '../../../data/data';
 export class Navbar {
   readonly whatsappLink = CONTACT_INFO.whatsappLink;
   isMobileMenuOpen = false;
+  bookingService = inject(BookingService);
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
   openBooking() {
-    window.open(CONTACT_INFO.bookingLink, '_blank');
+    this.bookingService.openModal();
   }
 }

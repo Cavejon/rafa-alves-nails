@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CONTACT_INFO } from '../../../data/data';
+import { BookingService } from '../../../services/booking.service';
 
 @Component({
   selector: 'app-hero',
@@ -41,7 +42,7 @@ import { CONTACT_INFO } from '../../../data/data';
               (click)="openBooking()"
               class="px-8 py-3.5 bg-brand-primary text-brand-bg hover:bg-brand-accent rounded-full transition-all duration-300 font-sans text-xs font-semibold tracking-[0.2em] uppercase shadow-md flex items-center justify-center gap-2 group"
             >
-              Agendar Horário
+              <p>Agendar Horário</p>
               <span class="inline-block transform group-hover:translate-x-1 transition-transform duration-300">→</span>
             </button>
 
@@ -54,6 +55,7 @@ import { CONTACT_INFO } from '../../../data/data';
               💬 Fale Conosco
             </a>
           </div>
+          
         </div>
 
         <!-- Direita: Image Content -->
@@ -61,7 +63,7 @@ import { CONTACT_INFO } from '../../../data/data';
           <!-- Main Premium Image with Pill-Arredondamento -->
           <div class="relative w-full max-w-[460px] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/40">
             <img
-              src="assets/images/unha1.jpeg"
+              src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=1000&auto=format&fit=crop&q=80"
               alt="Unhas impecáveis com detalhes delicados"
               class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
             />
@@ -90,8 +92,9 @@ import { CONTACT_INFO } from '../../../data/data';
 export class Hero {
   readonly bookingLink = CONTACT_INFO.bookingLink;
   readonly whatsappLink = CONTACT_INFO.whatsappLink;
+  bookingService = inject(BookingService);
 
   openBooking() {
-    window.open(this.bookingLink, '_blank');
+    this.bookingService.openModal();  
   }
 }

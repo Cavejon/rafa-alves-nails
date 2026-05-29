@@ -297,6 +297,7 @@ export const CONTACT_INFO: ContactInfo = {
   }
 };
 
+
 export const HIGHLIGHTS = [
   'Profissionalismo',
   'Qualidade Premium',
