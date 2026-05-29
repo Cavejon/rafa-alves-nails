@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GALLERY_IMAGES, CONTACT_INFO } from '../../../data/data';
 import { GalleryModalComponent } from '../gallery-modal/gallery-modal';
+import { BookingService } from '../../../services/booking.service';
 
 interface DisplayService {
   name: string;
@@ -184,7 +185,7 @@ interface DisplayService {
 })
 export class Services {
   readonly galleryImages = GALLERY_IMAGES;
-  readonly bookingLink = CONTACT_INFO.bookingLink;
+  bookingService = inject(BookingService);
 
   // Lista Completa com os 14 Serviços e Preços fornecidos pelo usuário
   readonly allServices: DisplayService[] = [
@@ -304,6 +305,6 @@ export class Services {
   }
 
   openBooking() {
-    window.open(this.bookingLink, '_blank');
+   this.bookingService.openModal();
   }
 }

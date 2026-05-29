@@ -7,6 +7,7 @@ import { Services } from './components/sections/services/services';
 import { TestimonialsComponent } from './components/sections/testimonials/testimonials';
 import { ContactComponent } from './components/sections/contact/contact';
 import { Footer } from './components/layout/footer/footer';
+import { BookingModalComponent } from './components/layout/booking-modal/booking-modal';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { Footer } from './components/layout/footer/footer';
     Services,
     TestimonialsComponent,
     ContactComponent,
-    Footer
+    Footer,
+    BookingModalComponent
   ],
   template: `
     <app-navbar></app-navbar>
@@ -29,7 +31,8 @@ import { Footer } from './components/layout/footer/footer';
     <app-testimonials></app-testimonials>
     <app-contact></app-contact>
     <app-footer></app-footer>
-  `,
+    <app-booking-modal></app-booking-modal>
+    `,
   styles: [
     `
       :host {
