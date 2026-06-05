@@ -69,13 +69,6 @@ export const SERVICES: Service[] = [
 
   // Gel
   {
-    id: 'gel-0',
-    name: 'Gel para as Mãos',
-    price: 70,
-    category: 'gel',
-    description: 'Aplicação de gel para reforço e acabamento nas mãos'
-  },
-  {
     id: 'gel-1',
     name: 'Esmaltação em Gel - Mão',
     price: 80,
